@@ -1,0 +1,242 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="footer-container">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+        <address class="copyright"><?php echo $this->getCopyright() ?></address>
+    </div>
+</div>
+
+<script>
+    var maxHeight = 300;
+    var maxwidth 
+    jQuery.noConflict();
+    jQuery(function(){
+
+        jQuery(".dropdown > li").hover(function() { 
+
+             var jQuerycontainer = jQuery(this),
+                 jQuerylist = jQuerycontainer.find("ul"),
+                 jQueryanchor = jQuerycontainer.find("a"),
+                 height = jQuerylist.height() * 1.1,       // make sure there is enough room at the bottom
+                 multiplier = height / maxHeight;     // needs to move faster if list is taller
+
+            // need to save height here so it can revert on mouseout            
+            jQuerycontainer.data("origHeight", jQuerycontainer.height());
+
+            // so it can retain it's rollover color all the while the dropdown is open
+            jQueryanchor.addClass("hover");
+
+            // make sure dropdown appears directly below parent list item    
+            jQuerylist
+                .show()
+                .css({
+
+                    paddingTop: jQuerycontainer.data("origHeight"),
+                    position:'absolute',
+                });
+
+            // don't do any animation if list shorter than max
+            if (multiplier > 1) {
+                jQuerycontainer
+                    .css({
+                        height: maxHeight,
+                        overflow: "hidden",
+
+
+
+                    })
+                    .mousemove(function(e) {
+                        var offset = jQuerycontainer.offset();
+                        var relativeY = ((e.pageY - offset.top) * multiplier) - (jQuerycontainer.data("origHeight") * multiplier);
+                        if (relativeY > jQuerycontainer.data("origHeight")) {
+                            jQuerylist.css("top", -relativeY +jQuerycontainer.data("origHeight"));
+                        };
+                    });
+            }
+
+        }, function() {
+
+            var jQueryel = jQuery(this);
+
+            // put things back to normal
+            jQueryel
+                .height(jQuery(this).data("origHeight"))
+                .find("ul")
+                .css({  })
+                .hide()
+                .end()
+                .find("a")
+                .removeClass("hover");
+
+        })});
+    jQuery(function(){
+    jQuery(".dropdown > li > ul > li").hover(function() {  
+
+             var jQuerycontainer = jQuery(this),
+                 jQuerylist = jQuerycontainer.find("ul"),
+                 jQueryanchor = jQuerycontainer.find("a"),
+                 height = jQuerylist.height() * 1.1,       // make sure there is enough room at the bottom
+
+                 multiplier = height / maxHeight;     // needs to move faster if list is taller
+
+            // need to save height here so it can revert on mouseout            
+            jQuerycontainer.data("origHeight", jQuerycontainer.height());
+
+            // so it can retain it's rollover color all the while the dropdown is open
+            jQueryanchor.addClass("hover");
+
+            // make sure dropdown appears directly below parent list item    
+            jQuerylist
+                .show()
+                .css({
+
+                    //paddingTop: jQuerycontainer.data("origHeight"),
+                    position:'absolute',
+                });
+
+            // don't do any animation if list shorter than max
+            if (multiplier > 1) {
+                jQuerycontainer
+                    .css({
+                        height: maxHeight,
+                        overflow: "hidden",
+
+
+
+                    })
+                    .mousemove(function(e) {
+                        var offset = jQuerycontainer.offset();
+                        var relativeY = ((e.pageY - offset.top) * multiplier) - (jQuerycontainer.data("origHeight") * multiplier);
+                        if (relativeY > jQuerycontainer.data("origHeight")) {
+                            jQuerylist.css("top", -relativeY +jQuerycontainer.data("origHeight"));
+                        };
+                    });
+            }
+
+        }, function() {
+
+            var jQueryel = jQuery(this);
+
+            // put things back to normal
+            jQueryel
+                .height(jQuery(this).data("origHeight"))
+                .find("ul")
+                .css({  })
+                .hide()
+                .end()
+                .find("a")
+                .removeClass("hover");
+
+        })});
+
+        //Add down arrow only to menu items with submenus
+        // jQuery(".nav-primary > li:has('ul')").each(function() {
+        //     jQuery(this).find("a:first").append("<img src='images/down-arrow.png' />");
+        // });
+    </script>
+    <style type="text/css">
+        ol.dropdown {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+    }
+    ol.dropdown li {
+        background: none repeat scroll 0 0 #ccc;
+        float: left;
+        font-weight: bold;
+        position: relative;
+        width: 180px;
+    }
+    ol.dropdown a:hover {
+        color: #000;
+    }
+    ol.dropdown li a {
+        color: #222;
+        display: block;
+        padding: 20px 8px;
+        position: relative;
+        z-index: 2000;
+    }
+    ol.dropdown li a:hover, ol.dropdown li a.hover {
+        background: none repeat scroll 0 0 #f3d673;
+        position: relative;
+    }
+    ol.dropdown ul {
+
+        display: none;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 180px;
+        z-index: 1000;
+    }
+    ol.dropdown ul li {
+        background: none repeat scroll 0 0 #f6f6f6;
+        border-bottom: 1px solid #ccc;
+        color: #000;
+        font-weight: normal;
+    }
+    ol.dropdown ul li a {
+        background: none repeat scroll 0 0 #eee !important;
+        display: block;
+    }
+    ol.dropdown ul li a:hover {
+        background: none repeat scroll 0 0 #f3d673 !important;
+        display: block;
+    }
+    ol.dropdown ul li ul {
+
+        display: none;
+        left: 180px;
+        position: absolute;
+        top: -40px;
+        width: 180px;
+        z-index: 1000;
+    }
+    ol.dropdown ul li ul li {
+        background: none repeat scroll 0 0 #f6f6f6;
+        border-bottom: 1px solid #ccc;
+        color: #000;
+        font-weight: normal;
+    }
+    ol.dropdown ul li ul li a {
+        background: none repeat scroll 0 0 #eee !important;
+        display: block;
+    }
+    ol.dropdown ul li ul li a:hover {
+        background: none repeat scroll 0 0 #f3d673 !important;
+        display: block;
+    }
+
+	ol.dropdown li.level1 ul {
+	left: 120px;
+	top:25px;
+	}
+
+    </style>
+

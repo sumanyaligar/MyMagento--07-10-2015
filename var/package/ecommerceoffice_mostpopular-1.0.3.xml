@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>ecommerceoffice_mostpopular</name>
+    <version>1.0.3</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Mostpopular (most viewed) products for your store</summary>
+    <description>Magento module generates the list of your online store's most popular selling products and displays it in sidebars. Extension allows you fully configure your most popular on your store and of course this extension fully configurable at backend.&#xD;
+</description>
+    <notes>1.0.3</notes>
+    <authors><author><name>volgodark</name><user>volgodark</user><email>volgodark@gmail.com</email></author></authors>
+    <date>2013-11-24</date>
+    <time>10:59:02</time>
+    <contents><target name="magecommunity"><dir name="Ecommerceoffice"><dir name="Mostpopular"><dir name="Block"><file name="Category.php" hash="18bbd5fb6461abf810ad007886475da2"/><file name="Home.php" hash="5dbbc6b26026d50090a77cf6ef293a5c"/><dir name="Page"><dir name="Html"><file name="Footer.php" hash="7a90525373e8c3359ea4bd92a95d84e5"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="ed9c5ab9db52bece9e7e56f7c90c7fc4"/></dir><dir name="Model"><file name="Data.php" hash="d45989d47cba1ec9aad7fd9655018fc7"/></dir><dir name="etc"><file name="config.xml" hash="1fde20800801b0032ea8a98b8815906f"/><file name="system.xml" hash="aed2402862f98c88d4c59711618784ef"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="ecommerceoffice"><dir name="mostpopular"><file name="category_left.phtml" hash="4356850a1008afc77461d7a4a227ee34"/><file name="category_right.phtml" hash="9300debb13101c3ee1f01c4b152a24d1"/><file name="home_left.phtml" hash="7a6671bc0e33fc1830f674bad68beb96"/><file name="home_right.phtml" hash="a13026be00a88fe0a099e94de62daa0c"/></dir></dir></dir><dir name="layout"><file name="ecommerceoffice_mostpopular.xml" hash="05e165e9eb6531e7129574a8d081ef23"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Ecommerceoffice_Mostpopular.xml" hash="f2e97bf71f34bc9b001edc868e234caf"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

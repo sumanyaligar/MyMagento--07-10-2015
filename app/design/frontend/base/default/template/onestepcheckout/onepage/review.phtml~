@@ -1,0 +1,65 @@
+<div id="checkout-review" class="onestepcheckout_block">
+    <div class="op_block_title" id="review"><?php echo $this->__('Review Your Order') ?></div>
+    <div id="checkout-review-load">
+        <?php echo $this->getChildHtml('info') ?>
+    </div>
+    <div id="checkout-review-submit">    
+        <?php echo $this->getChildHtml('agreements') ?>
+        <div class="buttons-set" id="review-buttons-container">
+        
+<!-- Heard Us -->
+        
+	<?php 
+ 
+ 		/*$hearus_conditions =(Mage::getStoreConfig('onestepcheckout/heardus/enabled'));
+ 		$hearus_values_admin = (Mage::getStoreConfig('onestepcheckout/heardus/output'));
+ 
+	if ($hearus_conditions == 1) : ?> 
+    
+   	<div class="hearedus">
+
+        	<?php 
+					echo $this->__('How did you hear about us?'); 
+					
+			?>
+       <p>      
+           <?php $hearus_values_users =  explode(',',$hearus_values_admin) ?>
+         	  <select>
+				 	 <?php  for($i=0;$i<sizeof($hearus_values_users);$i++){ ?>
+						
+                          <option value="<?php echo $hearus_values_users[$i]; ?>"><?php echo $hearus_values_users[$i]; ?></option>
+					  
+					<?php }?>
+		  </select>
+   	  </p>
+   	  
+    </div>
+       
+    <?php endif; */ ?>   
+     
+<!-- Heard Us -->
+       
+        <button type="submit" title="<?php echo $this->__('Place Order Now') ?>" class="button btn-checkout" onclick="checkout.save() myfunction(); return false;"><?php echo $this->__('Place Order Now') ?></button>
+            <span id="review-please-wait" style="display:none;float:right;">
+                <img src="<?php echo $this->getSkinUrl('images/onestepcheckout/opc-ajax-loader_onestepcheckout.gif') ?>" alt="<?php echo $this->__('Submitting order information...') ?>" title="<?php echo $this->__('Submitting order information...') ?>" class="v-middle" /> <?php echo $this->__('Submitting order information...') ?>
+            </span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function myfunction(){var x=document.getElementById("billing:postcode");
+ if (isNaN(x.value))
+ {
+   alert("Must input numbers");
+ }else
+{
+var pin =[282002,282003,282004,282005,282006,282007,282008,282009,282010,283110,282001,382001,380003,380006,380007,380009,380014,380015,380027,380051,380052,380054];var i = pin.length;
+   while (i--) {
+       if (pin[i] == x.value) {
+alert("Product ll be delivered");            
+return true;
+       }
+   }
+alert("sorry product cannot be delivered");
+   return false;}}
+</script>
